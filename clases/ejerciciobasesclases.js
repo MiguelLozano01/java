@@ -1,30 +1,71 @@
-class Poligono{
-    constructor(lados,base,altura){
-        this.lados = lados;
-        this.base = base;
-        this.altura = altura;
-    }
+class Poligono {
+  constructor(lados, base, altura) {
+    this._lados = lados;
+    this._base = base;
+    this._altura = altura;
+  }
+  set lados(lados) {
+    this._lados = lados;
+  }
+  set base(base) {
+    this._base = base;
+  }
+  set altura(altura) {
+    this._altura = altura;
+  }
+  get lados() {
+    return this._lados;
+  }
+  get base() {
+    return this._base;
+  }
+  get altura() {
+    return this._altura;
+  }
+  area() {}
+  perimetro() {}
+}
 
-    area(a,b){
-        this._base=b;
-        this._altura=a;
-        var area = Math.pow(a*b,2);          
-        return area
-    }
+class Cuadrado extends Poligono {
+  constructor(lados, base, altura) {
+    super(lados, base, altura);
+  }
 
-    dibuja(){
+  area() {
+    var areaCua = this._base * this._altura;
+    return areaCua;
+  }
+  perimetro() {
+    var perim = this._lados * this._lados;
+    return perim;
+  }
+}
+var obj2 = new Cuadrado(2, 2, 6);
+console.log(`El perimetro es ${obj2.perimetro()}`);
+console.log(`El area es ${obj2.area()}`);
 
-    }
-};
+class Triangulo extends Poligono {
+  constructor(lados, base, altura) {
+    super(lados, base, altura);
+  }
 
-let obj1 = new Poligono(2,3,2);
-console.log(`La base es:${obj1.base}, La altura es: ${obj1.altura}`);
-console.log(`La base por la altura al cuadrado es: ${obj1.area(3,2)}`);
+  area() {
+    var areaT = (this._base * this._altura) / 2;
+    return areaT;
+  }
 
-class Cuadrado extends Poligono{
+  perimetro() {
+    var perT = this._lados * 3
+    return perT;
+  }
+}
+var obj3 = new Triangulo(5,2,3)
+console.log(`El area es ${obj3.area()}`);
+console.log(`El area es ${obj3.perimetro()}`);
 
-    constructor(){
-        super(this._lados,this.base,this.altura);   
-    }
+class Rectangulo extends Poligono {
+    constructor(lados, base, altura)
 
-};
+    
+
+}
